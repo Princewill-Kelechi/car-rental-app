@@ -7,7 +7,7 @@ const BaseText = ({
   children,
   lineHeight = hp(24),
   fontSize = wp(16),
-  fontFamily = 'Poppins-Medium',
+  fontFamily = "Poppins-Medium",
   marginTop = 0,
   marginBottom = 0,
   marginLeft = 0,
@@ -19,7 +19,7 @@ const BaseText = ({
   ...rest
 }) => {
   const styles = {
-    main : {
+    main: {
       fontSize,
       fontFamily,
       marginTop,
@@ -30,7 +30,7 @@ const BaseText = ({
       letterSpacing,
       textAlign,
       color,
-    }
+    },
   };
 
   return (
