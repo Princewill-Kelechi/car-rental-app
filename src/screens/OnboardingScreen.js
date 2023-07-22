@@ -1,11 +1,12 @@
 import React from "react";
 import { SafeAreaView, View, StyleSheet, Text } from "react-native";
 import { colors } from "../theme/colors";
+import { CustomText } from "../components";
 
 const OnboardingScreen = () => {
   return (
     <SafeAreaView style={styles.main}>
-      <Text>Let's Get These party started</Text>
+      <CustomText.BodyLarge>Lets get these party started</CustomText.BodyLarge>
     </SafeAreaView>
   );
 };

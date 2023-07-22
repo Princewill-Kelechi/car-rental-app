@@ -7,7 +7,7 @@ const BaseText = ({
   children,
   lineHeight = hp(24),
   fontSize = wp(16),
-  fontFamily = "Poppins-Medium",
+  fontFamily = 'Poppins-Medium',
   marginTop = 0,
   marginBottom = 0,
   marginLeft = 0,
@@ -19,20 +19,22 @@ const BaseText = ({
   ...rest
 }) => {
   const styles = {
-    fontSize,
-    fontFamily,
-    marginTop,
-    lineHeight,
-    marginBottom,
-    marginLeft,
-    marginRight,
-    letterSpacing,
-    textAlign,
-    color,
+    main : {
+      fontSize,
+      fontFamily,
+      marginTop,
+      lineHeight,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      letterSpacing,
+      textAlign,
+      color,
+    }
   };
 
   return (
-    <Text style={[styles.main, ...customStyles]}>
+    <Text style={[styles.main, customStyles]} {...rest}>
       {value}
       {children}
     </Text>
