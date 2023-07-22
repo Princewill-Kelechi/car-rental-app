@@ -15,7 +15,7 @@ const BaseText = ({
   letterSpacing,
   customStyles = {},
   textAlign = "left",
-  color = colors.black,
+  color = colors.veryDarkBlue,
   ...rest
 }) => {
   const styles = {

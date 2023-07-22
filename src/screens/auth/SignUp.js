@@ -1,74 +1,72 @@
-import React, { useState } from "react";
-import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import React from "react";
+import {
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ScrollView,
+} from "react-native";
 import { Button, CustomText, Header, Input } from "../../components";
-import { ArrowBack, EyeClosed, EyeOpen } from "../../assets/icons";
+import { ArrowBack } from "../../assets/icons";
 import { wp } from "../../utils/responsive-dimension";
 import { colors } from "../../theme/colors";
 import { useNavigation } from "@react-navigation/native";
 import updateStatusBar from "../../hooks/updateStatusBar";
 
-const SignIn = () => {
+const SignUp = () => {
   updateStatusBar("light-content", colors.grey);
   const navigation = useNavigation();
-  const [secureTextEntry, setSecureTextEntry] = useState(true);
-
-  const ViewPassword = () => {
-    return (
-      <TouchableOpacity
-        activeOpacity={0.6}
-        onPress={() => setSecureTextEntry(!secureTextEntry)}
-      >
-        {secureTextEntry ? <EyeOpen /> : <EyeClosed />}
-      </TouchableOpacity>
-    );
-  };
 
   return (
     <View style={styles.main}>
       <Header customStyles={{ marginTop: wp(50) }} showBackIcon={true} />
 
-      <View style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
         <CustomText.Header
           fontSize={wp(25)}
           marginTop={wp(30)}
           paddingVertical={wp(10)}
         >
-          Welcome to Rent a Ride
+          Let's get to know you!
         </CustomText.Header>
         <CustomText.BodySmall paddingVertical={wp(10)}>
-          Enter your sign in details to continue.
+          Fill in your details to create an account.
         </CustomText.BodySmall>
 
-        <View style={styles.signInContainer}>
+        <View style={styles.signUpContainer}>
           <Input
+            marginTop={wp(10)}
+            label="Full Name"
+            placeholder="Your  full name"
+          />
+          <Input
+            inputContainerStyles={{ marginTop: wp(30) }}
             marginTop={wp(10)}
             label="Email address"
             placeholder="Your email address"
           />
           <Input
-            inputContainerStyles={{ marginTop: wp(50) }}
+            inputContainerStyles={{ marginTop: wp(30) }}
             marginTop={wp(10)}
             label="Password"
-            secureTextEntry={secureTextEntry}
+            secureTextEntry={true}
             placeholder="Your password"
-            inputWidth="80%"
-            rightElement={<ViewPassword />}
           />
 
           <Button marginTop={wp(40)} title={"Sign In"} />
         </View>
         <View style={styles.footer}>
           <CustomText.BodyLarge color={colors.gray3}>
-            Don't have an account?{" "}
+            Already have an account?{" "}
           </CustomText.BodyLarge>
           <TouchableOpacity
             activeOpacity={0.6}
-            onPress={() => navigation.navigate("SignUp")}
+            onPress={() => navigation.navigate("SignIn")}
           >
-            <CustomText.BodyLarge> Register</CustomText.BodyLarge>
+            <CustomText.BodyLarge> Sign In</CustomText.BodyLarge>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: wp(30),
   },
-  signInContainer: {
+  signUpContainer: {
     marginTop: wp(50),
   },
   inputContainer: {
@@ -100,4 +98,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignIn;
+export default SignUp;

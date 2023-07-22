@@ -13,7 +13,7 @@ const Button = ({
   onPress,
   title,
   width,
-  backgroundColor = colors.verydarkblue,
+  backgroundColor = colors.veryDarkBlue,
   textColor = colors.white,
   disabled,
   marginTop,

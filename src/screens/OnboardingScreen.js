@@ -13,13 +13,15 @@ const OnboardingScreen = () => {
     <SafeAreaView style={styles.main}>
       <View style={styles.container}>
         <Image style={styles.onboardingimage} source={onboardingimage} />
-        <CustomText.Header marginTop={hp(30)}>
+        <CustomText.Header color={colors.veryDarkBlue} marginTop={hp(30)}>
           Drive in style anywhere,
         </CustomText.Header>
-        <CustomText.Header>anytime.</CustomText.Header>
+        <CustomText.Header color={colors.veryDarkBlue}>
+          anytime.
+        </CustomText.Header>
         <CustomText.BodySmall
           fontSize={wp(15)}
-          color={colors.gray2}
+          color={colors.veryDarkBlue}
           marginTop={wp(20)}
         >
           Choose from hundreds of models, you won't find anywhere else, pick it
@@ -28,15 +30,16 @@ const OnboardingScreen = () => {
         <Button
           marginTop={wp(80)}
           title={"Log In"}
-          onPress={() => navigation.navigate("LogIn")}
+          onPress={() => navigation.navigate("SignIn")}
         />
         <Button
           backgroundColor={colors.white}
-          textColor={colors.verydarkblue}
-          borderColor={colors.verydarkblue}
+          textColor={colors.veryDarkBlue}
+          borderColor={colors.veryDarkBlue}
           borderWidth={wp(2)}
           marginTop={wp(10)}
           title={"Sign Up"}
+          onPress={() => navigation.navigate("SignUp")}
         />
       </View>
     </SafeAreaView>

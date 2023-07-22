@@ -16,5 +16,6 @@ export const colors = {
   error: "#D00404",
   lightOrange: "#f2994a19",
   darkOrange: "#F2994A",
-  verydarkblue: "#000080",
+  veryDarkBlue: "#000080",
+  mediumDarkBlue: "#0000FF",
 };
