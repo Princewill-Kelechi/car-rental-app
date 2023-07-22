@@ -1,5 +1,6 @@
 import React from "react";
 import { SafeAreaView, View, StyleSheet, Text, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { colors } from "../theme/colors";
 import { CustomText } from "../components";
 import { onboardingimage } from "../constants/images";
@@ -7,6 +8,7 @@ import { hp, wp } from "../utils/responsive-dimension";
 import Button from "../components/Button";
 
 const OnboardingScreen = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.main}>
       <View style={styles.container}>
@@ -23,7 +25,11 @@ const OnboardingScreen = () => {
           Choose from hundreds of models, you won't find anywhere else, pick it
           up or get it delivered where you want it.
         </CustomText.BodySmall>
-        <Button marginTop={wp(80)} title={"Log In"} />
+        <Button
+          marginTop={wp(80)}
+          title={"Log In"}
+          onPress={() => navigation.navigate("LogIn")}
+        />
         <Button
           backgroundColor={colors.white}
           textColor={colors.verydarkblue}

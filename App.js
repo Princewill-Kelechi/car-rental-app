@@ -7,6 +7,7 @@ import { useFonts } from "expo-font";
 import customFonts from "./src/theme/fonts";
 import { AppLoading } from "expo";
 import * as SplashScreen from "expo-splash-screen";
+import BaseApp from "./src/navigation/Navigator";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -35,7 +36,7 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <OnboardingScreen />
+      <BaseApp />
     </SafeAreaProvider>
   );
 }
