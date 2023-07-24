@@ -3,7 +3,7 @@ import { SafeAreaView, View, StyleSheet, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../theme/colors";
 import { CustomText } from "../components";
-import { onboardingimage } from "../constants/images";
+import { onboardingimage, onboardingimage2 } from "../constants/images";
 import { hp, wp } from "../utils/responsive-dimension";
 import Button from "../components/Button";
 
@@ -12,7 +12,7 @@ const OnboardingScreen = () => {
   return (
     <SafeAreaView style={styles.main}>
       <View style={styles.container}>
-        <Image style={styles.onboardingimage} source={onboardingimage} />
+        <Image style={styles.onboardingimage} source={onboardingimage2} />
         <CustomText.Header color={colors.veryDarkBlue} marginTop={hp(30)}>
           Drive in style anywhere,
         </CustomText.Header>

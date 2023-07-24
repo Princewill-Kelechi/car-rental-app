@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Button, CustomText, Header, Input } from "../../components";
 import { ArrowBack, EyeClosed, EyeOpen } from "../../assets/icons";
 import { wp } from "../../utils/responsive-dimension";
@@ -24,8 +30,8 @@ const SignIn = () => {
   };
 
   return (
-    <View style={styles.main}>
-      <Header customStyles={{ marginTop: wp(50) }} showBackIcon={true} />
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.main}>
+      <Header customStyles={{ marginTop: wp(24) }} showBackIcon={true} />
 
       <View style={styles.container}>
         <CustomText.Header
@@ -69,7 +75,7 @@ const SignIn = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

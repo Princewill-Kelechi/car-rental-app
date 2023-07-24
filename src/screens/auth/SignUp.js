@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -7,7 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import { Button, CustomText, Header, Input } from "../../components";
-import { ArrowBack } from "../../assets/icons";
+import { ArrowBack, EyeClosed, EyeOpen } from "../../assets/icons";
 import { wp } from "../../utils/responsive-dimension";
 import { colors } from "../../theme/colors";
 import { useNavigation } from "@react-navigation/native";
@@ -17,9 +17,22 @@ const SignUp = () => {
   updateStatusBar("light-content", colors.grey);
   const navigation = useNavigation();
 
+  const [secureTextEntry, setSecureTextEntry] = useState(true);
+
+  const ViewPassword = () => {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.6}
+        onPress={() => setSecureTextEntry(!secureTextEntry)}
+      >
+        {secureTextEntry ? <EyeOpen /> : <EyeClosed />}
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <View style={styles.main}>
-      <Header customStyles={{ marginTop: wp(50) }} showBackIcon={true} />
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.main}>
+      <Header customStyles={{ marginTop: wp(24) }} showBackIcon={true} />
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
         <CustomText.Header
@@ -49,8 +62,10 @@ const SignUp = () => {
             inputContainerStyles={{ marginTop: wp(30) }}
             marginTop={wp(10)}
             label="Password"
-            secureTextEntry={true}
+            secureTextEntry={secureTextEntry}
             placeholder="Your password"
+            inputWidth="80%"
+            rightElement={<ViewPassword />}
           />
 
           <Button marginTop={wp(40)} title={"Sign In"} />
@@ -67,7 +82,7 @@ const SignUp = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </ScrollView>
   );
 };
 
