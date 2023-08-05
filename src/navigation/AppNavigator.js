@@ -5,6 +5,16 @@ import {
   ResetPassword,
   SignIn,
   SignUp,
+  PromoScreen,
+  SearchScreen,
+  CarDetailScreen,
+  CheckoutScreen,
+  ProtectionPlanScreen,
+  ProfileScreen,
+  EditProfileSceen,
+  BillingScreen,
+  ChangePassword,
+  AddCar,
 } from "../screens";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -29,6 +39,12 @@ const AppNavigator = () => {
       }}
     >
       <Stack.Screen name="TabNavigator" component={TabNavigator} />
+      <Stack.Screen name="CarDetailScreen" component={CarDetailScreen} />
+      <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
+      <Stack.Screen
+        name="ProtectionPlanScreen"
+        component={ProtectionPlanScreen}
+      />
     </Stack.Navigator>
   );
 };
@@ -41,10 +57,39 @@ const DummyNavigator = () => {
       }}
     >
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="PromoScreen" component={PromoScreen} />
+      <Stack.Screen name="SearchScreen" component={SearchScreen} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="ResetPassword" component={ResetPassword} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+    </Stack.Navigator>
+  );
+};
+
+const ProfileNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      <Stack.Screen name="EditProfileScreen" component={EditProfileSceen} />
+      <Stack.Screen name="BillingScreen" component={BillingScreen} />
+      <Stack.Screen name="ChangePassword" component={ChangePassword} />
+    </Stack.Navigator>
+  );
+};
+
+const AddCarNavigator = () => {
+  return (
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+    >
+      <Stack.Screen name="AddCar" component={AddCar} />
     </Stack.Navigator>
   );
 };
@@ -73,14 +118,14 @@ const TabNavigator = () => {
       />
       <BottomTab.Screen
         name="Add Vehicle"
-        component={DummyNavigator}
+        component={AddCarNavigator}
         options={{
           tabBarLabel: "Add vehicle",
         }}
       />
       <BottomTab.Screen
         name="Profile"
-        component={DummyNavigator}
+        component={ProfileNavigator}
         options={{
           tabBarLabel: "Profile",
         }}

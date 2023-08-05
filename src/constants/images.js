@@ -9,6 +9,9 @@ const car5 = require("../assets/images/car5.jpg");
 const car6 = require("../assets/images/car6.jpg");
 const car7 = require("../assets/images/car7.jpg");
 const star = require("../assets/images/star.png");
+const profileImg = require("../assets/images/profile.jpg");
+const visa = require("../assets/images/visa.png");
+const visa2 = require("../assets/images/visa2.png");
 
 export {
   onboardingimage,
@@ -22,4 +25,7 @@ export {
   car6,
   car7,
   star,
+  profileImg,
+  visa,
+  visa2,
 };

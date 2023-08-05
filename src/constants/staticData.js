@@ -9,32 +9,46 @@ import {
   homecar,
   onboardingimage,
   onboardingimage2,
+  profileImg,
 } from "./images";
 
 const discount = [
   {
     title: "New year 2022 25% off promo",
     carImage: homecar,
+    code: "POB743",
+    description:
+      "To celebrate the new year 2023, we are giving a special promo for you. Redeem a rent of car and get new year reward for every checkout these period",
   },
   {
     title: "Tourist special discount 15% off",
     carImage: onboardingimage2,
+    code: "LUY534",
+    description:
+      "In order to boost our countries economy, we would be giving out a special dicount for all visitors, Thank you for visiting our beloved nation",
   },
   {
     title: "Corporate special discout 8% off ",
     carImage: onboardingimage,
+    code: "NOI764",
+    description:
+      "We are big fans of the industry leading companies, and its gives us joy to see you show up in style to your meetings, Special discount to all registered corporate organizations",
   },
 ];
 
 const listingData = [
   {
     image: car1,
+    image2: car2,
+    image3: car3,
+
     name: "Bugatti Chivron 2023 - model Q",
     rating: "4.6",
     reviewCount: "207",
     price: "30,000",
     currency: " ₦",
     paymentInterval: "day",
+    address: "10, Joel arobiewe str",
   },
   {
     image: car2,
@@ -119,4 +133,12 @@ const listingData = [
   },
 ];
 
-export { listingData, discount };
+const profileData = {
+  profileImg: profileImg,
+  name: "Princewill Kelechi",
+  email: "princewillkelechi02020@gmail.com",
+  gender: "male",
+  accountType: "client",
+};
+
+export { listingData, discount, profileData };

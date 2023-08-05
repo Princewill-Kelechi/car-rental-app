@@ -4,10 +4,20 @@ import CustomText from "./CustomText";
 import { colors } from "../theme/colors";
 import { wp } from "../utils/responsive-dimension";
 import { car3, star } from "../constants/images";
+import { useNavigation } from "@react-navigation/native";
 
 const CarCard = ({ listingData, customStyles }) => {
+  const navigation = useNavigation();
   return (
-    <View style={[styles.card, customStyles]}>
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={() =>
+        navigation.navigate("CarDetailScreen", {
+          carItem: listingData,
+        })
+      }
+      style={[styles.card, customStyles]}
+    >
       <Image source={listingData?.image} style={styles.carStyles} />
       <View style={{ marginLeft: wp(10) }}>
         <CustomText.BodyLarge marginTop={wp(15)} fontFamily="Poppins-SemiBold">
@@ -38,7 +48,7 @@ const CarCard = ({ listingData, customStyles }) => {
           {listingData?.paymentInterval}
         </CustomText.BodyLarge>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

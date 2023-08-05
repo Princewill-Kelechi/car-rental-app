@@ -27,7 +27,7 @@ const Input = ({
   editable = true,
   greyOutUneditableInput = true,
   placeholderTextColor = colors.gray3,
-
+  textInputStyle = {},
   ...rest
 }) => {
   const styles = {
@@ -76,14 +76,20 @@ const Input = ({
         </CustomText.BodyLarge>
       )}
       <View style={[styles.inputContainer, inputStyles]}>
+        <View>{leftElement}</View>
+
         <TextInput
-          style={{ fontFamily: "Poppins-Regular", width: inputWidth }}
+          style={[
+            { fontFamily: "Poppins-Regular", width: inputWidth },
+            textInputStyle,
+          ]}
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
           onBlur={inputBlur}
           onChangeText={onChangeText}
           onFocus={inputFocused}
           secureTextEntry={secureTextEntry}
+          value={value}
           {...rest}
         />
         <View>{rightElement}</View>

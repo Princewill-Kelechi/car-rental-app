@@ -6,6 +6,7 @@ import {
   ScrollView,
   SafeAreaView,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import {
   CarCard,
@@ -14,14 +15,17 @@ import {
   DotIndicator,
   CustomCarousel,
 } from "../../components";
+import { useNavigation } from "@react-navigation/native";
 import { hp, wp } from "../../utils/responsive-dimension";
 import { ArrowDown, NotificationIcon, SearchIcon } from "../../assets/icons";
 import { colors } from "../../theme/colors";
 import { discount, listingData } from "../../constants/staticData";
+import { globalStyles } from "../../theme/globalStyles";
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={globalStyles.safeArea}>
       <View
         style={{
           flexDirection: "row",
@@ -51,14 +55,23 @@ const HomeScreen = () => {
             justifyContent: "space-between",
           }}
         >
-          <SearchIcon color={colors.veryDarkBlue} size={wp(25)} />
+          <TouchableOpacity
+            style={{
+              width: wp(40),
+              height: wp(40),
+            }}
+            activeOpacity={0.6}
+            onPress={() => navigation.navigate("SearchScreen")}
+          >
+            <SearchIcon color={colors.veryDarkBlue} size={wp(25)} />
+          </TouchableOpacity>
           <NotificationIcon color={colors.veryDarkBlue} size={wp(25)} />
         </View>
       </View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollViewContent}
+        contentContainerStyle={globalStyles.scrollViewContent}
       >
         <CustomCarousel
           scrollViewProps={{ snapToInterval: wp(380) }}
@@ -66,6 +79,11 @@ const HomeScreen = () => {
           carouselStyle={{ marginTop: wp(30), marginBottom: wp(10) }}
           renderItem={(item) => (
             <CarDiscountCard
+              onPress={() =>
+                navigation.navigate("PromoScreen", {
+                  promoItem: item,
+                })
+              }
               discountData={item}
               customStyles={{ marginRight: wp(20) }}
             />
@@ -133,23 +151,6 @@ const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  //   container: {
-  //     flex: 1,
-  //     justifyContent: "center",
-  //     alignItems: "center",
-  //   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: wp(30),
-    marginTop: wp(50),
-  },
-  scrollViewContent: {
-    flexGrow: 1,
-    paddingBottom: wp(60),
-    // justifyContent: "center",
-    // alignItems: "center",
-  },
-});
+const styles = StyleSheet.create({});
 
 export default HomeScreen;

@@ -8,6 +8,9 @@ import ProfileIcon from "../icons/bottomTabIcons/ProfileIcon";
 import ArrowDown from "./ArrowDown";
 import NotificationIcon from "./NotificationIcon";
 import SearchIcon from "./SearchIcon";
+import ArrowRight from "./ArrowRight";
+import ShieldIcon from "./ShieldIcon";
+import WalletIcon from "./Wallet";
 
 export {
   ArrowBack,
@@ -20,4 +23,7 @@ export {
   ArrowDown,
   NotificationIcon,
   SearchIcon,
+  ArrowRight,
+  ShieldIcon,
+  WalletIcon,
 };
